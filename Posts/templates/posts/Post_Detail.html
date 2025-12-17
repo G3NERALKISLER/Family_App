@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    
+    .banner {border-radius:20px; display:block; width:90%;
+        max-width:500px; max-height:500px;  object-fit: cover;}
+    article { Margin-left:100px;display :flex;}
+    div{padding:15px; background:black; border-radius:15px; margin:10px;display: inline;}
+    h1,p {color:white;}
+    @media (max-width:600px){
+        article {margin-left:20px; display:block;}
+        h1 {color:orangered;font-size:20px;}
+        p {font-size:16px;}
+        div{background:none;}
+        footer p {font-size:13px; color:white;}
+    }
+</style>
+<title>{{post.title}}</title><br>
+<article>
+    <img class="banner"
+     src="{{post.banner.url}}" alt="{{post.title}}">
+     <div>
+     <h1> {{post.title}} </h1>
+    <p>{{ post.date}}</p>
+    <p>{{ post.body}}</p>
+     </div>
+</article>
+
+
+{% endblock %}

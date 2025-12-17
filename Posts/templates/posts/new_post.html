@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content%}
+    <title>New post</title>
+    <style>
+        
+        .form {line-height:1.5;}
+        button {margin:10px; background-color:green; 
+            color:white; border-radius:5px; border:none; padding:5px;}
+        .newpost {gap:4px;color:white;margin:20px; background:black; padding:20px; border-radius:15px; width: fit-content;}
+        @media (max-width:600px){
+            .newpost {margin-left:20px; width: 320px;}
+        }
+
+    </style>
+
+    <section class="newpost">
+    <h1>New post</h1>
+    <form class="form" action="{%url 'posts:newpost'%}" 
+    method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form}}
+    <button>Add Post</button>
+</form>
+</section>
+{% endblock %}

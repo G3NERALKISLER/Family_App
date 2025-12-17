@@ -1,0 +1,144 @@
+{% load static %} 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        *{margin:0;}
+        body {font-weight:bold;font-family:"Segoe UI", sans-serif;background:url('{% static 'pic10.webp'%}'); background-size:cover; background-repeat:no-repeat;}
+        h1,p{color:white;margin:20px;}
+        nav {height:fit-content; display:flex; Margin-top: 0px; 
+            border:2px orangered solid; border-right:0; border-left:0; border-top:0;}
+        li{list-style-type:none; justify-content:flex-end;margin-left:0px; font-size:34px;}
+        a:hover{color:aqua;}
+       ul {display:flex; justify-content:space-between; margin:10px; }
+       .hyper {border:2px solid yellow; border:0; color:white; display:flex;text-decoration:none; font-size:26px;}
+      .marketting{border:0px solid black; border-radius:10px; padding:10px; background-color:black; color:lightgreen;}
+      .welcome {color:orange;}
+      .links {display:flex; margin-left:150px; gap:10px; justify-content:space-between;}
+       .logout {font-weight:bold; border-radius:5px; padding:2px; border:none; background-color:green; color:white; font-size:20px; margin-top:8px;}
+       .sidebar{
+        position: fixed;
+        top:0;
+        right:0;
+        height: 100vh;
+        width: 250px;
+        z-index: 999;
+        background-color: rgba(255, 255, 255, 0);
+        backdrop-filter: blur(10px);
+        color: black;
+        box-shadow: -10px 0 10px rgba(0,0,0,0.1);
+        display:none;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+      }
+      .sidebar a{
+        color: white;
+      }
+      .sidebar li{
+       
+        width:100%;
+        margin-left:0;
+        padding: 0px 0px;
+        margin-top: 10px;
+        line-height: 1.6;
+        border-radius: 5px;
+      }
+      .sidebar a::after{
+        width: 0;
+      }
+      .sidebar li:hover{
+        border-radius: 5px;
+        border:2px aqua solid;
+        border-top:none;
+        border-right: none;
+        border-bottom: none;
+      }
+      .menu a::after{
+        background: none;
+      }
+       @media (max-width:600px){
+        .menu {margin-left:55px;}
+        .welcome { margin-left:0; font-size:17px;}
+        .logout {font-size:12px;}
+        .links { display: none;}
+        .sidebar a{margin-left:10px;font-size:14px;}
+        .sidebar button{cursor: pointer;margin-left:10px;}
+        nav{border:none;}
+        .about {font-size:17px;}
+        .aboutfamily{font-size:14px;}
+        footer{font-size:13px;background-color:black;}
+        .marketting{background:none;}
+        nav {display: flex;gap: 20px;color:white;
+          }
+          nav ul {
+            list-style: none;display: flex; color:white;
+          }
+          nav ul li{
+            margin-left:20px;
+          }
+          
+          nav ul li a {
+            color: white;text-decoration: none; font-weight: 500; transition: color 0.3s ease;
+          }
+          nav a:hover {
+            color: white;
+          }
+          a::after{
+            content: ''; width:15%;height:2px;background-color: orange;color:white;display:flex;margin:auto;transition: 0.5s;
+       }
+    }
+       @media (min-width:600px){
+        .menu{
+            display:none;
+        }
+       }
+    </style>
+</head>
+<body >
+    
+    <nav>
+        <ul>
+        <li class="welcome">WELCOME TO THE KAMAU'S FAMILY</li>
+        <section class="links">
+       <li> <a class="hyper" href="{% url 'posts:Homepage'%}">Home</li></a>
+       <li><a class="hyper" href="{% url 'posts:postpage'%}">Posts</li></a>
+      <li><a href="{%url 'posts:newpost'%}" class="hyper">Add Post</li></a>
+      <form action="{% url 'users:logout' %}" method="post">
+        {% csrf_token %}
+        <button class="logout">
+            logout
+        </button>
+        </section>
+    </ul>
+    <li class="menu"  onclick="showSidebar()"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="35px" viewBox="0 -960 960 960" width="35px" fill="#e3e3e3" id="menu"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></a></li>
+    </nav>
+    {% comment %} sidebar {% endcomment %}
+    <nav>
+        <section class="sidebar">
+       <li> <a class="hyper" href="{% url 'posts:Homepage'%}">Home</li></a>
+       <li><a class="hyper" href="{% url 'posts:postpage'%}">Posts</li></a>
+      <li><a href="{%url 'posts:newpost'%}" class="hyper">Add Post</li></a>
+      <form action="{% url 'users:logout' %}" method="post">
+        {% csrf_token %}
+        <button class="logout">
+            logout
+        </button>
+        <li onclick="hideSidebar()"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a></li>
+        </section>
+    </ul>
+    </nav>
+    <script src="{% static 'script.js'%}"></script>
+    {% block content %}
+    {% endblock %}
+
+    <footer>
+        <p>© 2025 Family Website | Built with Django<b>
+           <span class="marketting"> Built by James Kamau email: jamnk06683@gmaill.com<span>
+        </p>
+    </footer>
+</body>
+</html>

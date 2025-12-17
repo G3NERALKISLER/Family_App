@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<title>Homepage</title>
+<style>
+    * {margin:0; box-sizzing:border-box;}
+    body  {background:white black; border-radius:5px; }
+    .hello {color:orange; border-radius:10px; padding:10px; background:black;  text-decoration:none; margin-left:350px; width: fit-content; font-size:20px;}
+    .about{border-radius:10px;margin-left:100px;width: fit-content;background-color:orangered; padding: 5px;color:white;}
+    .aboutfamily{display: inline;color:black; text-align:left; border-radius:10px; line-height:1.5;margin:5px; padding: 5px; background-color:black;}
+    .FamilyPhoto {display:flex;gap:30px; padding: 10px;height:400px; text-align:center;}
+    .photoSection {background-color:transparent;padding:10px;  border-radius:10px;}
+    .Familyphoto{margin-top:35px; width:600px; border-radius:20px; object-fit:contain;}
+    @media (max-width:800px) {
+    .hello {font-size:17px;margin-left:50px;}
+    .FamilyPhoto{display:inline;}
+    .Familyphoto{width:360px;}
+    .aboutfamily{background:none;}
+    }
+</style>
+<h1 class="hello">Hello & Welcome To Our Family</h1>
+<section class="FamilyPhoto">
+    <div class="photoSection">
+<img class="Familyphoto" src="{% static 'FamilyPhoto.jpg' %}"  alt="familyphoto">
+    </div>
+    <div class="aboutfamily">
+    <h1 class="about">About Our Family</h2>
+        <p>
+            The Kamau family is built on togetherness, respect, and shared stories.
+            This space is where we document moments, lessons, and memories that matter,
+            from everyday wins to milestones worth remembering.
+          </p>
+      
+          <p>
+            Here, everyone has a voice. We believe in growth, creativity, and staying
+            connected, no matter where life takes us.
+          </p>
+        </div>
+</section>
+{% endblock %}
