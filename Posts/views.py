@@ -5,7 +5,7 @@ from . import forms
 # Create your views here.
 @login_required(login_url="login/")
 def Home_page(request):
-    return render(request, 'posts/home.html')
+    return render(request, 'posts/Home.html')
 def Post_Page(request):
     posts = Post.objects.all().order_by('-date')
     return render(request, 'posts/Posts.html', {'posts':posts})
