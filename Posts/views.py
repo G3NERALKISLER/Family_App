@@ -11,7 +11,7 @@ def Post_Page(request):
     return render(request, 'posts/Posts.html', {'posts':posts})
 def Post_Detail(request, slug):
     post= Post.objects.get(slug=slug)
-    return render(request, 'posts/Post_detail.html', {'post':post})
+    return render(request, 'posts/Post_Detail.html', {'post':post})
 def new_post(request):
     if request.method == "POST": 
         form = forms.CreatePost(request.POST, request.FILES)
