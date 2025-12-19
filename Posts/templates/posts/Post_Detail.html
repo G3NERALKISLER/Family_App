@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
+{%load cloudinary%}
 <style>
     
     .banner {border-radius:20px; display:block; width:90%;
@@ -17,8 +18,8 @@
 </style>
 <title>{{post.title}}</title><br>
 <article>
-    <img class="banner"
-     src="{{post.banner.url}}" alt="{{post.title}}">
+    {% cloudinary post.banner class="banner" alt=post.title %}
+
      <div>
      <h1> {{post.title}} </h1>
     <p>{{ post.date}}</p>

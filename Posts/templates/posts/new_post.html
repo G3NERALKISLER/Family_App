@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block content%}
+{%load cloudinary%}
     <title>New post</title>
     <style>
         
@@ -15,8 +16,8 @@
 
     <section class="newpost">
     <h1>New post</h1>
-    <form class="form" action="{%url 'posts:newpost'%}" 
-    method="post" enctype="multipart/form-data">
+    <form class="form" 
+    method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     {{form}}
     <button>Add Post</button>

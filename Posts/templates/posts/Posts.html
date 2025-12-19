@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
+{%load cloudinary%}
 <title>Posts</title>
 <style>
     body {}
@@ -37,7 +38,7 @@
     <article>
         <div class="posts">
         <a href="{% url 'posts:page' slug=post.slug %}">
-       <img class="banner" src="{{post.banner.url}}" alt="{{post.title}}">
+            {% cloudinary post.banner class="banner" alt=post.title %}
        <h2>{{ post.title}}</h2>
        <p>Posted by {{post.author}}</p>
  
