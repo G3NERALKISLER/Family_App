@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 from pathlib import Path
 import os
+import dj_database_url
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
@@ -82,12 +83,9 @@ WSGI_APPLICATION = 'Family_Website.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+DATABASES = { 'default': dj_database_url.config( default=os.environ.get("DATABASE_URL") ) }
+DATABASE_URL = "postgres://family_user:secretpass@dpg-cxyz1234567890abcd1234:5432/familywebsite"
+
 
 
 # Password validation
