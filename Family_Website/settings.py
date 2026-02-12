@@ -84,7 +84,7 @@ WSGI_APPLICATION = 'Family_Website.wsgi.application'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = { 'default': dj_database_url.config( default=os.environ.get("DATABASE_URL") ) }
-DATABASE_URL = "postgresql://postgres:[YOUR-PASSWORD]@db.naglpoqsamqvkybrlsen.supabase.co:5432/postgres"
+DATABASE_URL = "postgresql://postgres:[w9d5u6jyGCUnhKyQ]@db.naglpoqsamqvkybrlsen.supabase.co:5432/postgres"
 
 
 
