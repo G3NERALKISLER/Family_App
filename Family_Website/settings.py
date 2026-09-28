@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-_#@78=_wi@l-420h6o%#i41+=bvr0ekh#vgjyhi3=ii)1p@w&7
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["127.0.0.1", "https://kamau-s-family-app.onrender.com"]
+ALLOWED_HOSTS = ["127.0.0.1", "kamau-s-family-app.onrender.com"]
 CSRF_TRUSTED_ORIGINS = [
     "https://kamau-s-family-app.onrender.com",
 ]
