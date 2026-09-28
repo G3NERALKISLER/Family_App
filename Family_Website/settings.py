@@ -31,7 +31,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["family-app-ohbc.onrender.com","127.0.0.1"]
 CSRF_TRUSTED_ORIGINS = [
-    "https://family-app-ohbc.onrender.com",
+    "https://kamau-s-family-app.onrender.com",
 ]
 
 # Application definition
